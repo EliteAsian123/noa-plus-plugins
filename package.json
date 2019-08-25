@@ -1,0 +1,28 @@
+{
+  "name": "noa-plus-plugins",
+  "version": "1.0.0",
+  "description": "Plugins I made for the game engine NOA",
+  "scripts": {
+    "start": "cd test-game/ && webpack-dev-server",
+    "build": "cd test-game/ && webpack --env.production"
+  },
+  "keywords": [
+    "noa-engine",
+    "noa",
+    "voxel",
+    "game",
+    "plugin",
+    "addon"
+  ],
+  "author": "EliteAsian123",
+  "license": "MIT",
+  "dependencies": {
+    "@babylonjs/core": "^4.0.3",
+    "noa-engine": "github:andyhall/noa#develop"
+  },
+  "devDependencies": {
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
