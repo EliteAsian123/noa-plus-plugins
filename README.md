@@ -14,7 +14,7 @@ To setup noa-plus-plugins, go into you index.js (that'll compile into your bundl
 var nppb = new NoaPlusPlugins(noa, BABYLON);
   
 // Add the ExamplePlugin and make it say "Hello World" (You can delete this)
-var examplePlugin = new ExamplePlugin("MESSAGE");
+var examplePlugin = new ExamplePlugin("Hello World!");
 nppb.addPlugin(examplePlugin);
 
 // Add any other plugins here
