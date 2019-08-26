@@ -1,5 +1,14 @@
+/////////////////////////////////////////////////////////////
+//        												   //
+// Plugin by: EliteAsian123								   //
+// Code by: EliteAsian123, Andy Hall      				   //
+//														   //
+// This plugin adds simple functions to generate terrain.  //
+//														   //
+/////////////////////////////////////////////////////////////
+
 function NoaTerrainGen(nppb) {
-	this.noa = nppb.getNoa();
+	this.nppb = nppb;
 }
 
 NoaTerrainGen.prototype.init = function() {}
@@ -7,7 +16,6 @@ NoaTerrainGen.prototype.init = function() {}
 NoaTerrainGen.prototype.getName = function() {
 	return "Noa Terrain Gen";
 }
-
 
 NoaTerrainGen.prototype.setTerrainGenType = function(type) {
 	this.genType = type;

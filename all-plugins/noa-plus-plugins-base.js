@@ -1,3 +1,12 @@
+/////////////////////////////////////////////////////////////
+//        												   //
+// Plugin by: EliteAsian123								   //
+// Code by: EliteAsian123      							   //
+//														   //
+// This is the base for noa-plus-plugins.			       //
+//														   //
+/////////////////////////////////////////////////////////////
+
 function NoaPlusPlugins(noa, babylon) {
 	this.noa = noa;
 	this.babylon = babylon;
@@ -7,12 +16,8 @@ function NoaPlusPlugins(noa, babylon) {
 }
 
 NoaPlusPlugins.prototype.addPlugin = function(plugin) {
-	try {
-		plugin.init();
-		this.pluginList.push(plugin.getName());	
-	} catch(err) {
-		console.error("Tried to add a plugin that isn't a plugin.");
-	}
+	plugin.init();
+	this.pluginList.push(plugin.getName());	
 }
 
 NoaPlusPlugins.prototype.registerBlock = function(id, optionsDefault, optionsCustom) {
