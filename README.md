@@ -21,5 +21,8 @@ Yeah, that's it! Not much yet. More info is *will* available in the Wiki Tab!
 # Usage - Making Plugins
 Info is *will* available in the Wiki Tab!
 
+# Thanks
+**MASSIVE** thanks to [Andy Hall](https://github.com/andyhall/) for making this amazing engine in the first place!
+
 # License 
 MIT
