@@ -18,7 +18,8 @@
   "license": "MIT",
   "dependencies": {
     "@babylonjs/core": "^4.0.3",
-    "noa-engine": "github:andyhall/noa#develop"
+    "noa-engine": "github:andyhall/noa#develop",
+    "voxel-crunch": "^0.2.1"
   },
   "devDependencies": {
     "webpack": "^4.38.0",
