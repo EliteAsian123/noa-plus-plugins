@@ -6,6 +6,9 @@ import Engine from "noa-engine";
 // NPPB requires the class BABYLON (legacy)
 import * as BABYLON from "@babylonjs/core/Legacy/legacy";
 
+// Voxel Crunch
+var voxelCrunch = require("voxel-crunch");
+
 var opts = {
     debug: true,
     showFPS: true,
@@ -21,9 +24,12 @@ var nppb = new NoaPlusPlugins(noa, BABYLON);
 var examplePlugin = new ExamplePlugin("Hello World");
 nppb.addPlugin(examplePlugin);
 
-var noaTerrainGen = new NoaTerrainGen(nppb)
+var noaTerrainGen = new NoaTerrainGen(nppb);
 nppb.addPlugin(noaTerrainGen);
 noaTerrainGen.setTerrainGenType("flat");
+
+var noaChunkSave = new NoaChunkSave(nppb, voxelCrunch);
+nppb.addPlugin(noaChunkSave);
 
 // Block materials
 noa.registry.registerMaterial("dirt", null, "textures/dirt.png");
@@ -35,9 +41,19 @@ var dirtID = nppb.registerBlock(1, { material: "dirt" }, {});
 var grassID = nppb.registerBlock(2, { material: "grass" }, {});
 var stoneID = nppb.registerBlock(3, { material: "stone" }, {});
 
-// Register for world events
+// chunkBeingRemoved Event
+noa.world.on('chunkBeingRemoved', function(id, array, userData) {
+    noaChunkSave.chunkSave(id, array);
+});
+
+
+// worldDataNeeded Event
 noa.world.on("worldDataNeeded", function (id, data, x, y, z) {
-    data = noaTerrainGen.genTerrain(id, data, x, y, z, [grassID, dirtID, stoneID]);
+	if (noaChunkSave.isChunkSaved(id)) {
+		data = noaChunkSave.chunkLoad(id, data);
+	} else {
+		data = noaTerrainGen.genTerrain(id, data, x, y, z, [grassID, dirtID, stoneID]);
+	}
     // Tell noa the chunk's terrain data is now set
     noa.world.setChunkData(id, data);
 });
