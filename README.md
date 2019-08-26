@@ -13,8 +13,10 @@ To setup noa-plus-plugins, go into you index.js (that'll compile into your bundl
 // Init noa-plus-plugins
 var nppb = new NoaPlusPlugins(noa, BABYLON);
   
-// Add the ExamplePlugin and make it say "Hello World"
+// Add the ExamplePlugin and make it say "Hello World" (You can delete this)
 nppb.addPlugin(new ExamplePlugin("Hello World"));
+
+// Add any other plugins here
 ```
 Note that `BABYLON` is the legacy `BABYLON` variable, and can be gotten like this:
 ```js
