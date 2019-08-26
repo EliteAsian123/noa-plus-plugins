@@ -20,7 +20,7 @@ Note that `BABYLON` is the legacy `BABYLON` variable, and can be gotten like thi
 ```js
 import * as BABYLON from '@babylonjs/core/Legacy/legacy'
 ```
-Yeah, that's it! Not much yet. More info is available in the Wiki Tab!
+More info is available in the Wiki Tab!
 
 # Usage - Making Plugins
 Info *will* available in the Wiki Tab!
