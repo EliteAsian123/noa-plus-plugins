@@ -20,10 +20,10 @@ Note that `BABYLON` is the legacy `BABYLON` variable, and can be gotten like thi
 ```js
 import * as BABYLON from '@babylonjs/core/Legacy/legacy'
 ```
-More info is available in the Wiki Tab!
+More info is available in the [Wiki Tab](https://github.com/EliteAsian123/noa-plus-plugins/wiki)!
 
 # Usage - Making Plugins
-Info *will* available in the Wiki Tab!
+Info *will* available in the [Wiki Tab](https://github.com/EliteAsian123/noa-plus-plugins/wiki)!
 
 # Thanks
 **MASSIVE** thanks to [Andy Hall](https://github.com/andyhall/) for making this amazing engine in the first place!
