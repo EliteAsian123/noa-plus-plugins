@@ -31,7 +31,6 @@ nppb.addPlugin(noaChunkSave);
 var noaEnvironment = new NoaEnvironment(nppb, "textures/clouds.png");
 nppb.addPlugin(noaEnvironment);
 noaEnvironment.setCloudOptions(1, new BABYLON.Color3(1, 1, 1), 100);
-noaEnvironment.setProceduralOptions(20);
 
 // Block materials
 noa.registry.registerMaterial("dirt", null, "textures/dirt.png");
