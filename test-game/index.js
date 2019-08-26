@@ -21,15 +21,17 @@ var noa = new Engine(opts)
 // Loading plugins (noa-plus-plugins)
 var nppb = new NoaPlusPlugins(noa, BABYLON);
 
-var examplePlugin = new ExamplePlugin("Hello World");
-nppb.addPlugin(examplePlugin);
-
 var noaTerrainGen = new NoaTerrainGen(nppb);
 nppb.addPlugin(noaTerrainGen);
 noaTerrainGen.setTerrainGenType("flat");
 
 var noaChunkSave = new NoaChunkSave(nppb, voxelCrunch);
 nppb.addPlugin(noaChunkSave);
+
+var noaEnvironment = new NoaEnvironment(nppb, "textures/clouds.png");
+nppb.addPlugin(noaEnvironment);
+noaEnvironment.setCloudOptions(1, new BABYLON.Color3(1, 1, 1), 100);
+noaEnvironment.setProceduralOptions(20);
 
 // Block materials
 noa.registry.registerMaterial("dirt", null, "textures/dirt.png");

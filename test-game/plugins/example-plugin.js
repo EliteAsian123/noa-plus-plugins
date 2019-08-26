@@ -1,4 +1,15 @@
-function ExamplePlugin(message) {
+/////////////////////////////////////////////////////////////
+//        												   //
+// Plugin by: EliteAsian123								   //
+// Code by: EliteAsian123      							   //
+//														   //
+// This is a example plugin and just prints things into    //
+// the console.          								   //
+//														   //
+/////////////////////////////////////////////////////////////
+
+function ExamplePlugin(nppb, message) {
+	this.nppb = nppb;
 	this.message = message;
 }
 
