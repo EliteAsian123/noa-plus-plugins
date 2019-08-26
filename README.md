@@ -16,10 +16,10 @@ var nppb = new NoaPlusPlugins(noa, BABYLON);
 // Add the ExamplePlugin and make it say "Hello World"
 nppb.addPlugin(new ExamplePlugin("Hello World"));
 ```
-Yeah, that's it! Not much yet. More info is *will* available in the Wiki Tab!
+Yeah, that's it! Not much yet. More info is available in the Wiki Tab!
 
 # Usage - Making Plugins
-Info is *will* available in the Wiki Tab!
+Info *will* available in the Wiki Tab!
 
 # Thanks
 **MASSIVE** thanks to [Andy Hall](https://github.com/andyhall/) for making this amazing engine in the first place!
