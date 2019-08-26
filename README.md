@@ -16,6 +16,10 @@ var nppb = new NoaPlusPlugins(noa, BABYLON);
 // Add the ExamplePlugin and make it say "Hello World"
 nppb.addPlugin(new ExamplePlugin("Hello World"));
 ```
+Note that `BABYLON` is the legacy `BABYLON` variable, and can be gotten like this:
+```js
+import * as BABYLON from '@babylonjs/core/Legacy/legacy'
+```
 Yeah, that's it! Not much yet. More info is available in the Wiki Tab!
 
 # Usage - Making Plugins
