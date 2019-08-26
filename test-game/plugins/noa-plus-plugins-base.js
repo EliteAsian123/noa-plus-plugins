@@ -9,11 +9,10 @@ function NoaPlusPlugins(noa, babylon) {
 NoaPlusPlugins.prototype.addPlugin = function(plugin) {
 	try {
 		plugin.init();
+		this.pluginList.push(plugin.getName());	
 	} catch(err) {
 		console.error("Tried to add a plugin that isn't a plugin.");
 	}
-	
-	this.pluginList.push(plugin);	
 }
 
 NoaPlusPlugins.prototype.registerBlock = function(id, optionsDefault, optionsCustom) {
@@ -27,4 +26,16 @@ NoaPlusPlugins.prototype.getBlockCustomOptions = function(id, optionName) {
 	} else {
 		return null;
 	}
+}
+
+NoaPlusPlugins.prototype.getPluginNames = function() {
+	return this.pluginList;
+}
+
+NoaPlusPlugins.prototype.getNoa = function() {
+	return this.noa;
+}
+
+NoaPlusPlugins.prototype.getBabylon = function() {
+	return this.babylon;
 }
