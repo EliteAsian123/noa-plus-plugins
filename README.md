@@ -4,8 +4,8 @@ This is a library that adds plugin support to [Noa Engine](https://github.com/an
 # Usage - Using Plugins
 Clone this repository and move the `all-plugins` folder into your project (Make sure you have [Noa Engine](https://github.com/andyhall/noa) installed in that same project!) then in the index.html file, add these lines of code **above bundle.js**:
 ```html
-<script type="text/javascript" src="plugins/noa-plus-plugins-base.js"></script>
-<script type="text/javascript" src="plugins/example-plugin.js"></script>
+<script type="text/javascript" src="all-plugins/noa-plus-plugins-base.js"></script>
+<script type="text/javascript" src="all-plugins/example-plugin.js"></script>
 ```
 Yep! No `npm`! This is done to make it easier to develop plugins for noa-plus-plugins, because you don't have to compile it everytime!
 To setup noa-plus-plugins, go into you index.js (that'll compile into your bundle.js) and add:
