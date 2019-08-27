@@ -33,3 +33,32 @@ NoaChunkSave.prototype.chunkLoad = function(id, data) {
 NoaChunkSave.prototype.isChunkSaved = function(id) {
 	return (id.toString() in this.saveData);
 }
+
+NoaChunkSave.prototype.getSaveData = function() {
+	this.nppb.getNoa().world.invalidateAllChunks();
+	return this.saveData;
+}
+
+NoaChunkSave.prototype.getSaveDataJSON = function() {
+	this.nppb.getNoa().world.invalidateAllChunks();
+	return JSON.stringify(this.saveData);
+}
+
+NoaChunkSave.prototype.setSaveData = function(saveData) {
+	this.saveData = saveData;
+}
+
+NoaChunkSave.prototype.setSaveDataJSON = function(saveDataJSON) {
+	var e = JSON.stringify(this.saveData);
+	var saveString = saveDataJSON;
+	saveString = JSON.parse(saveString);
+	var saveStringKeys = Object.keys(saveString);
+	for (var element of saveStringKeys) {
+		if (typeof saveString[element] !== Uint8Array) {
+			saveString[element] = Object.keys(saveString[element]).map(function(key) {
+				return saveString[element][key];
+			});
+		}
+	}
+	this.saveData = saveString;
+}
