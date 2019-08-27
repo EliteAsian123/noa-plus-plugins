@@ -1,10 +1,10 @@
 /////////////////////////////////////////////////////////////
-//        												   //
-// Plugin by: EliteAsian123								   //
-// Code by: levlups      								   //
-//														   //
-// This plugin adds clouds and fog to your game!   		   //
-//														   //
+//                                                         //
+// Plugin by: EliteAsian123                                //
+// Code by: levlups                                        //
+//                                                         //
+// This plugin adds clouds and fog to your game!           //
+//                                                         //
 /////////////////////////////////////////////////////////////
 
 function NoaEnvironment(nppb, cloudTexturePath) { 

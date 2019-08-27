@@ -1,10 +1,10 @@
 /////////////////////////////////////////////////////////////
-//        												   //
-// Plugin by: EliteAsian123								   //
-// Code by: EliteAsian123      							   //
-//														   //
-// This is the base for noa-plus-plugins.			       //
-//														   //
+//                                                         //
+// Plugin by: EliteAsian123                                //
+// Code by: EliteAsian123                                  //
+//                                                         //
+// This is the base for noa-plus-plugins.                  //
+//                                                         //
 /////////////////////////////////////////////////////////////
 
 function NoaPlusPlugins(noa, babylon) {
