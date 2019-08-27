@@ -1,10 +1,10 @@
 /////////////////////////////////////////////////////////////
-//        												   //
-// Plugin by: EliteAsian123								   //
-// Code by: EliteAsian123      							   //
-//														   //
-// This plugin adds saves chunks to RAM.			       //
-//														   //
+//                                                         //
+// Plugin by: EliteAsian123                                //
+// Code by: EliteAsian123                                  //
+//                                                         //
+// This plugin adds saves chunks to RAM.                   //
+//                                                         //
 /////////////////////////////////////////////////////////////
 
 function NoaChunkSave(nppb, voxelCrunch) {

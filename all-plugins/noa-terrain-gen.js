@@ -1,10 +1,10 @@
 /////////////////////////////////////////////////////////////
-//        												   //
-// Plugin by: EliteAsian123								   //
-// Code by: EliteAsian123, Andy Hall      				   //
-//														   //
+//                                                         //
+// Plugin by: EliteAsian123                                //
+// Code by: EliteAsian123, Andy Hall                       //
+//                                                         //
 // This plugin adds simple functions to generate terrain.  //
-//														   //
+//                                                         //
 /////////////////////////////////////////////////////////////
 
 function NoaTerrainGen(nppb) {
@@ -24,6 +24,7 @@ NoaTerrainGen.prototype.setTerrainGenType = function(type) {
 NoaTerrainGen.prototype.genTerrain = function(id, data, x, y, z, blockIDs) {
 	switch (this.genType) {
 		case "default":
+			// From hello-world example
 			for (var x1 = 0; x1 < data.shape[0]; x1++) {
 				for (var y1 = 0; y1 < data.shape[1]; y1++) {
 					for (var z1 = 0; z1 < data.shape[2]; z1++) {

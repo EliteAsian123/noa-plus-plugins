@@ -1,11 +1,11 @@
 /////////////////////////////////////////////////////////////
-//        												   //
-// Plugin by: EliteAsian123								   //
-// Code by: EliteAsian123      							   //
-//														   //
+//                                                         //
+// Plugin by: EliteAsian123                                //
+// Code by: EliteAsian123                                  //
+//                                                         //
 // This is a example plugin and just prints things into    //
-// the console.          								   //
-//														   //
+// the console.                                            //
+//                                                         //
 /////////////////////////////////////////////////////////////
 
 function ExamplePlugin(nppb, message) {
