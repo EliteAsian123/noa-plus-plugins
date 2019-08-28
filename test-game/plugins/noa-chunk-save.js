@@ -20,12 +20,12 @@ NoaChunkSave.prototype.getName = function() {
 }
 
 NoaChunkSave.prototype.chunkSave = function(id, array) {
-	var encodedData = this.voxelCrunch.encode(array.data, new Uint16Array(array.data.length));
+	var encodedData = this.voxelCrunch.encode(array.data);
 	this.saveData[id.toString()] = encodedData;
 }
 
 NoaChunkSave.prototype.chunkLoad = function(id, data) {
-	var decodedData = this.voxelCrunch.decode(this.saveData[id.toString()], new Uint16Array(data.data.length));
+	var decodedData = this.voxelCrunch.decode(this.saveData[id.toString()], new Uint32Array(data.data.length));
 	data.data = decodedData;
 	return data;
 }
