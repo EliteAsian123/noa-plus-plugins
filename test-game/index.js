@@ -23,7 +23,7 @@ var nppb = new NoaPlusPlugins(noa, BABYLON);
 
 var noaTerrainGen = new NoaTerrainGen(nppb);
 nppb.addPlugin(noaTerrainGen);
-noaTerrainGen.setTerrainGenType("flat");
+noaTerrainGen.setTerrainGenType("simplex");
 
 var noaChunkSave = new NoaChunkSave(nppb, voxelCrunch);
 nppb.addPlugin(noaChunkSave);
@@ -87,12 +87,12 @@ noa.entities.addComponent(player, noa.entities.names.mesh, {
 // Clear targeted block on on left click
 noa.inputs.down.on("fire", function () {
     if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position);
-})
+});
 
 // Place some grass on right click
 noa.inputs.down.on("alt-fire", function () {
     if (noa.targetedBlock) noa.addBlock(stoneID, noa.targetedBlock.adjacent);
-})
+});
 
 // Ran each tick
 noa.on("tick", function (dt) {
