@@ -60,10 +60,6 @@ NoaEnvironment.prototype.setCloudOptions = function(alpha, babylonColorCloud, he
 	this.cloudMesh.setEnabled(true);
 }
 
-NoaEnvironment.prototype.setProceduralOptions = function(speed) {
-	this.cloudMesh.material.diffuseTexture.animationSpeedFactor = speed;
-}
-
 NoaEnvironment.prototype.disableClouds = function() {
 	this.cloudMesh.setEnabled(false);
 }
