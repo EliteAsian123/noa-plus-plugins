@@ -14,16 +14,23 @@ var opts = {
     showFPS: true,
     chunkSize: 32,
     chunkAddDistance: 2.5,
-    chunkRemoveDistance: 3.5,
+    chunkRemoveDistance: 3.5
 }
 var noa = new Engine(opts)
 
 // Loading plugins (noa-plus-plugins)
 var nppb = new NoaPlusPlugins(noa, BABYLON);
 
-var noaTerrainGen = new NoaTerrainGen(nppb);
+var noaTerrainGen = new NoaTerrainGen(nppb, "ddd");
 nppb.addPlugin(noaTerrainGen);
-noaTerrainGen.setTerrainGenType("simplex");
+var terrainOptions = {
+	a_zoom: 100,
+	a_height: 7,
+	b_zoom: 50,
+	b_height: 3,
+	c_zoom: 500,
+	c_height: 10
+};
 
 var noaChunkSave = new NoaChunkSave(nppb, voxelCrunch);
 nppb.addPlugin(noaChunkSave);
@@ -53,7 +60,7 @@ noa.world.on("worldDataNeeded", function (id, data, x, y, z) {
 	if (noaChunkSave.isChunkSaved(id)) {
 		data = noaChunkSave.chunkLoad(id, data);
 	} else {
-		data = noaTerrainGen.genTerrain(id, data, x, y, z, [grassID, dirtID, stoneID]);
+		data = noaTerrainGen.genAdvancedTerrain(id, data, x, y, z, [grassID, dirtID, stoneID], terrainOptions);
 	}
     // Tell noa the chunk's terrain data is now set
     noa.world.setChunkData(id, data);
@@ -94,7 +101,29 @@ noa.inputs.down.on("alt-fire", function () {
     if (noa.targetedBlock) noa.addBlock(stoneID, noa.targetedBlock.adjacent);
 });
 
-// Ran each tick
-noa.on("tick", function (dt) {
+// Flying by Levlups
+var body = noa.entities.getPhysicsBody(noa.playerEntity);
+var hovering = false
+noa.inputs.bind('hover', 'R');
+noa.inputs.down.on('hover', function() {
+	hovering = true;
+});
 
+function hover(noa, body) {
+	var f = (body.velocity[1] < 0) ? 40 : 24;
+	body.applyForce([0, f, 0]);
+}
+
+noa.inputs.up.on('hover', function() {
+	hovering = false;
+});
+
+// Ran each tick
+noa.on('tick', function(dt) {
+	if (hovering) hover(noa, body);
+});
+
+// Ran before each render
+noa.on('beforeRender', function(dt) {
+	noaEnvironment.moveClouds(dt / 1000000, 0);
 });
