@@ -30,6 +30,7 @@ Info *will* available in the [Wiki Tab](https://github.com/EliteAsian123/noa-plu
 
 # Thanks
 **MASSIVE** thanks to [Andy Hall](https://github.com/andyhall/) for making this amazing engine in the first place!
+Also thanks to [Levlups](https://github.com/levlups/) for helping me with some code!
 
 # License 
 MIT
