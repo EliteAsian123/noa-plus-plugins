@@ -558,7 +558,3 @@ NoaTerrainGen.prototype.genAdvancedTerrain = function(id, data, x, y, z, blockID
 	}
 	return data;
 }
-
-
-
-			
