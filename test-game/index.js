@@ -9,6 +9,9 @@ import * as BABYLON from "@babylonjs/core/Legacy/legacy";
 // Voxel Crunch
 var voxelCrunch = require("voxel-crunch");
 
+// GL Vector3
+var glvec3 = require("gl-vec3");
+
 var opts = {
     debug: true,
     showFPS: true,
@@ -39,15 +42,28 @@ var noaEnvironment = new NoaEnvironment(nppb, "textures/clouds.png");
 nppb.addPlugin(noaEnvironment);
 noaEnvironment.setCloudOptions(1, new BABYLON.Color3(1, 1, 1), 100);
 
+var texturesArray = [
+	"textures/break_decal_0.png",
+	"textures/break_decal_1.png",
+	"textures/break_decal_2.png",
+	"textures/break_decal_3.png",
+	"textures/break_decal_4.png",
+	"textures/break_decal_5.png",
+	"textures/break_decal_6.png",
+	"textures/break_decal_7.png"
+];
+var noaBlockBreak = new NoaBlockBreak(nppb, glvec3, texturesArray);
+nppb.addPlugin(noaBlockBreak);
+
 // Block materials
 noa.registry.registerMaterial("dirt", null, "textures/dirt.png");
 noa.registry.registerMaterial("grass", null, "textures/grass.png");
 noa.registry.registerMaterial("stone", null, "textures/stone.png");
 
 // Block types
-var dirtID = nppb.registerBlock(1, { material: "dirt" }, {});
-var grassID = nppb.registerBlock(2, { material: "grass" }, {});
-var stoneID = nppb.registerBlock(3, { material: "stone" }, {});
+var dirtID = nppb.registerBlock(1, { material: "dirt" }, { hardness: 2 });
+var grassID = nppb.registerBlock(2, { material: "grass" }, { hardness: 2.1 });
+var stoneID = nppb.registerBlock(3, { material: "stone" }, { hardness: 5 });
 
 // chunkBeingRemoved Event
 noa.world.on('chunkBeingRemoved', function(id, array, userData) {
@@ -91,9 +107,14 @@ noa.entities.addComponent(player, noa.entities.names.mesh, {
     offset: [0, h / 2, 0]
 });
 
-// Clear targeted block on on left click
 noa.inputs.down.on("fire", function () {
-    if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position);
+    //if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position);
+	noaBlockBreak.fireDown();
+});
+
+noa.inputs.up.on("fire", function () {
+    //if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position);
+	noaBlockBreak.fireUp();
 });
 
 // Place some grass on right click
@@ -126,4 +147,5 @@ noa.on('tick', function(dt) {
 // Ran before each render
 noa.on('beforeRender', function(dt) {
 	noaEnvironment.moveClouds(dt / 1000000, 0);
+	noaBlockBreak.render(dt, 1);
 });
