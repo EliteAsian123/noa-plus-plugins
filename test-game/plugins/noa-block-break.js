@@ -38,12 +38,12 @@ NoaBlockBreak.prototype.fireUp = function() {
 NoaBlockBreak.prototype.render = function(dt, modifier) {
 	if (this.block !== null && this.nppb.noa.targetedBlock !== null) {
 		if (this.timer >= this.nppb.getBlockCustomOptions(this.block.blockID, "hardness")) {
-			this.nppb.noa.setBlock(0, this.block.position);
-			this.timer = -1;
-			this.block = null;
 			if (this.hook !== null) {
 				this.hook(this.block.blockID);
 			}
+			this.nppb.noa.setBlock(0, this.block.position);
+			this.timer = -1;
+			this.block = null;
 		} else {
 			this.timer += dt / 150 * modifier;
 			this.breakDecal.changeTexture(this.textures[Math.floor(this.timer / (this.nppb.getBlockCustomOptions(this.block.blockID, "hardness") / 7))]);
