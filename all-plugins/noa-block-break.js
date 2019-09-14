@@ -15,6 +15,8 @@ function NoaBlockBreak(nppb, glvec3, textures) {
 	this.block = null;
 	this.timer = 0;
 	this.down = false;
+
+	this.hook = null;
 }
 
 NoaBlockBreak.prototype.init = function() {
@@ -39,6 +41,9 @@ NoaBlockBreak.prototype.render = function(dt, modifier) {
 			this.nppb.noa.setBlock(0, this.block.position);
 			this.timer = -1;
 			this.block = null;
+			if (this.hook !== null) {
+				this.hook(this.block.blockID);
+			}
 		} else {
 			this.timer += dt / 150 * modifier;
 			this.breakDecal.changeTexture(this.textures[Math.floor(this.timer / (this.nppb.getBlockCustomOptions(this.block.blockID, "hardness") / 7))]);
@@ -63,4 +68,8 @@ NoaBlockBreak.prototype.render = function(dt, modifier) {
 		this.block = null;
 		this.timer = 0;
 	}
+}
+
+NoaBlockBreak.prototype.addHook = function(f) {
+	this.hook = f;
 }
