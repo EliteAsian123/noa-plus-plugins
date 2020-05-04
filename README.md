@@ -1,4 +1,6 @@
 # noa-plus-plugins
+### I have stopped updating this project. Some of these plugins may not work.
+
 This is a library that adds plugin support to [Noa Engine](https://github.com/andyhall/noa). noa-plus-plugins is in beta so there isn't much yet. The test-game is based off of the [Hello World Example](https://github.com/andyhall/noa-examples). If you are using this, it is required that you have prior knowledge of Noa.
 
 # Usage - Using Plugins
